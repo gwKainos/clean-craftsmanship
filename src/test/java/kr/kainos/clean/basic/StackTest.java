@@ -2,6 +2,7 @@ package kr.kainos.clean.basic;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
@@ -24,5 +25,12 @@ public class StackTest {
     stack.push(0);
     stack.pop();
     assertTrue(stack.isEmpty());
+  }
+
+  @Test
+  public void afterTwoPushes_sizeIsTwo() throws Exception {
+    stack.push(0);
+    stack.push(0);
+    assertEquals(2, stack.getSize());
   }
 }
