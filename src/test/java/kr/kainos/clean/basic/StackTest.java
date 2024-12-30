@@ -39,7 +39,6 @@ public class StackTest {
 
   @Test
   public void poppingEmptyStack_throwsUnderflow() {
-    Stack stack = new Stack();
     assertThrows(Stack.Underflow.class, () -> {
       stack.pop();
     });
