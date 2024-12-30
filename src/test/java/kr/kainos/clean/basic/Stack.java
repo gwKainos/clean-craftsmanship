@@ -1,15 +1,15 @@
 package kr.kainos.clean.basic;
 
 public class Stack {
-
-  private boolean empty = true;
   private int size = 0;
+  private int element;
 
   public boolean isEmpty() {
     return size == 0;
   }
 
   public void push(int element) {
+    this.element = element;
     size++;
   }
 
@@ -17,7 +17,7 @@ public class Stack {
     if (size == 0)
       throw new Underflow();
     --size;
-    return 99;
+    return element;
   }
 
   public int getSize() {
