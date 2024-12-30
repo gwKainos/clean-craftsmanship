@@ -1,6 +1,7 @@
 package kr.kainos.clean.basic;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -36,7 +37,10 @@ public class StackTest {
     assertEquals(2, stack.getSize());
   }
 
-  @Test(expected = Stack.Underflow.class)
   public void poppingEmptyStack_throwsUnderflow() {
+    Stack stack = new Stack();
+    assertThrows(Stack.Underflow.class, () -> {
+      stack.pop();
+    });
   }
 }
