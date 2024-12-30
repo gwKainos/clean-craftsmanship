@@ -14,4 +14,8 @@ public class Stack {
     empty = true;
     return -1;
   }
+
+  public int getSize() {
+    return 2;
+  }
 }
