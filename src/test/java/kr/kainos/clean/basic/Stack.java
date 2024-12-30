@@ -2,22 +2,20 @@ package kr.kainos.clean.basic;
 
 public class Stack {
   private int size = 0;
-  private int element;
+  private int[] elements = new int[2];
 
   public boolean isEmpty() {
     return size == 0;
   }
 
   public void push(int element) {
-    this.element = element;
-    size++;
+    this.elements[size++] = element;
   }
 
   public int pop() {
     if (size == 0)
       throw new Underflow();
-    --size;
-    return element;
+    return elements[--size];
   }
 
   public int getSize() {
