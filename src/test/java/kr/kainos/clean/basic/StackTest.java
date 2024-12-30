@@ -37,6 +37,7 @@ public class StackTest {
     assertEquals(2, stack.getSize());
   }
 
+  @Test
   public void poppingEmptyStack_throwsUnderflow() {
     Stack stack = new Stack();
     assertThrows(Stack.Underflow.class, () -> {
