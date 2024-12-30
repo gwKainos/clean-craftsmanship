@@ -6,15 +6,15 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 public class StackTest {
+  private Stack stack = new Stack();
+
   @Test
   public void canCreateStack() throws Exception {
-    Stack stack = new Stack();
     assertTrue(stack.isEmpty());
   }
 
   @Test
-  public void canPush() throws Exception {
-    Stack stack = new Stack();
+  public void afterOnePush_isNotEmpty() throws Exception {
     stack.push(0);
     assertFalse(stack.isEmpty());
   }
