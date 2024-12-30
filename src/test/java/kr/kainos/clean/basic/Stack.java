@@ -1,4 +1,5 @@
 package kr.kainos.clean.basic;
 
-public class MyStack {
+public class Stack {
+
 }
