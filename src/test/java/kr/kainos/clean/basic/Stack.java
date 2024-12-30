@@ -1,11 +1,12 @@
 package kr.kainos.clean.basic;
 
 public class Stack {
-
+  private boolean empty = true;
   public boolean isEmpty() {
-    return true;
+    return empty;
   }
 
   public void push(int element) {
+    empty = false;
   }
 }
