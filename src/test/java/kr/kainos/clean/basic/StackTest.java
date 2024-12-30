@@ -1,5 +1,6 @@
 package kr.kainos.clean.basic;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -15,5 +16,6 @@ public class StackTest {
   public void canPush() throws Exception {
     Stack stack = new Stack();
     stack.push(0);
+    assertFalse(stack.isEmpty());
   }
 }
