@@ -18,6 +18,7 @@ public class StackTest {
   public void afterOnePush_isNotEmpty() throws Exception {
     stack.push(0);
     assertFalse(stack.isEmpty());
+    assertEquals(1, stack.getSize());
   }
 
   @Test
