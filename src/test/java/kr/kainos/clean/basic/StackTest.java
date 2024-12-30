@@ -43,4 +43,10 @@ public class StackTest {
       stack.pop();
     });
   }
+
+  @Test
+  public void afterPushingX_willPopX() throws Exception {
+    stack.push(99);
+    assertEquals(99, stack.pop());
+  }
 }
