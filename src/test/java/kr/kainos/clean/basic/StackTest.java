@@ -35,4 +35,8 @@ public class StackTest {
     stack.push(0);
     assertEquals(2, stack.getSize());
   }
+
+  @Test(expected = Stack.Underflow.class)
+  public void poppingEmptyStack_throwsUnderflow() {
+  }
 }
