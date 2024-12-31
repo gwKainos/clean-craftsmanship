@@ -20,7 +20,7 @@ public class PrimeFactorsTest {
   private List<Integer> factorsOf(int n) {
     ArrayList<Integer> factors = new ArrayList<>();
     if(n > 1) {
-      factors.add(2);
+      factors.add(n);
     }
     return factors;
   }
