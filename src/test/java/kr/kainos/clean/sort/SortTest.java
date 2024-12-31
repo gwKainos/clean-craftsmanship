@@ -11,6 +11,7 @@ public class SortTest {
   @Test
   public void sorted() throws Exception {
     assertEquals(asList(), sort(asList()));
+    assertEquals(1, sort(asList(1)));
   }
 
   private List<Integer> sort(List<Integer> list) {
