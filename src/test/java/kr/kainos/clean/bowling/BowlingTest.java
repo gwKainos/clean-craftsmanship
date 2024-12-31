@@ -34,9 +34,13 @@ public class BowlingTest {
 
   @Test
   public void oneSpare() throws Exception {
-    rollMany(2, 5);
+    rollSpare();
     g.roll(7);
     rollMany(17, 0);
     assertEquals(24, g.score());
+  }
+
+  private void rollSpare() {
+    rollMany(2, 5);
   }
 }
