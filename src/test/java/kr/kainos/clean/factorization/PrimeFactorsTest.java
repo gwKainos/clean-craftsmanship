@@ -17,6 +17,10 @@ public class PrimeFactorsTest {
   }
 
   private List<Integer> factorsOf(int n) {
-    return new ArrayList<>();
+    ArrayList<Integer> factors = new ArrayList<>();
+    if(n > 1) {
+      factors.add(2);
+    }
+    return factors;
   }
 }
