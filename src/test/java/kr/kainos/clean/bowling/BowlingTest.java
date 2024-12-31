@@ -1,17 +1,23 @@
 package kr.kainos.clean.bowling;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 
 public class BowlingTest {
 
+  private Game g;
+
   @Test
-  public void canCreateGame() throws Exception {
-    Game g = new Game();
+  public void setUp() throws Exception {
+    g = new Game();
   }
 
   @Test
-  public void canRoll() throws Exception {
-    Game g = new Game();
-    g.roll(0);
+  public void gutterGame() throws Exception {
+    for(int i=0; i<20; i++) {
+      g.roll(0);
+    }
+    assertEquals(0, g.score());
   }
 }
