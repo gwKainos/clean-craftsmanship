@@ -1,6 +1,7 @@
 package kr.kainos.clean.bowling;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,19 +16,19 @@ public class BowlingTest {
 
   @Test
   public void gutterGame() throws Exception {
-    rollMany(0);
+    rollMany(20, 0);
     assertEquals(0, g.score());
   }
 
-  private void rollMany(int pins) {
-    for (int i = 0; i < 20; i++) {
+  private void rollMany(int n, int pins) {
+    for (int i = 0; i < n; i++) {
       g.roll(pins);
     }
   }
 
   @Test
   public void allOnes() throws Exception {
-    rollMany(1);
+    rollMany(20, 1);
     assertEquals(20, g.score());
   }
 }
