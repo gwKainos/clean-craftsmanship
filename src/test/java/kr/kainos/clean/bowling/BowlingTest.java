@@ -40,6 +40,15 @@ public class BowlingTest {
     assertEquals(24, g.score());
   }
 
+  @Test
+  public void oneStrike() throws Exception {
+    g.roll(10);
+    g.roll(2);
+    g.roll(3);
+    rollMany(16, 0);
+    assertEquals(20, g.score());
+  }
+
   private void rollSpare() {
     rollMany(2, 5);
   }
