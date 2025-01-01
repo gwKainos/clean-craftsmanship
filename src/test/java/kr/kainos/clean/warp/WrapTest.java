@@ -13,6 +13,6 @@ public class WrapTest {
   }
 
   private String wrap(String s, int w) {
-    return "Four";
+    return s.replace(" ", "\n");
   }
 }
