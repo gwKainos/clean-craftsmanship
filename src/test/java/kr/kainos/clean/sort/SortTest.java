@@ -21,12 +21,17 @@ public class SortTest {
     if (list.size() <= 1) {
       return list;
     }
-    int first = list.get(0);
-    int second = list.get(1);
-    if (first > second) {
-      return asList(second, first);
+
+    if (list.size() == 2) {
+      int first = list.get(0);
+      int second = list.get(1);
+      if (first > second) {
+        return asList(second, first);
+      }
+
+      return asList(first, second);
     }
 
-    return asList(first, second);
+    return list;
   }
 }
