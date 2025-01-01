@@ -17,6 +17,15 @@ public class SortTest {
   }
 
   private List<Integer> sort(List<Integer> list) {
-    return list;
+    if (list.size() <= 1) {
+      return list;
+    }
+    int first = list.get(0);
+    int second = list.get(1);
+    if (first > second) {
+      return asList(second, first);
+    }
+
+    return asList(first, second);
   }
 }
