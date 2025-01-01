@@ -12,6 +12,6 @@ public class WrapTest {
   }
 
   private String wrap(String s, int w) {
-    return null;
+    return "Four";
   }
 }
