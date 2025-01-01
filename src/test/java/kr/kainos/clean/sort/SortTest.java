@@ -14,6 +14,7 @@ public class SortTest {
     assertEquals(List.of(1), sort(List.of(1)));
     assertEquals(asList(1, 2), sort(asList(1, 2)));
     assertEquals(asList(1, 2), sort(asList(2, 1)));
+    assertEquals(asList(1, 2, 3), sort(asList(1, 2, 3)));
   }
 
   private List<Integer> sort(List<Integer> list) {
