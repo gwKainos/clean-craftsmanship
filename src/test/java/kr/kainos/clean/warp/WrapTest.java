@@ -9,7 +9,9 @@ public class WrapTest {
   @Test
   public void testWrap() throws Exception {
     assertWrapped("Four", 7, "Four");
-    assertWrapped("Four\nscore", 7, "Four score");
+    assertWrapped("Four score", 7, "Four\nscore");
+    assertWrapped("ago our", 7, "ago our");
+
   }
 
   private void assertWrapped(String s, int width, String expected) {
