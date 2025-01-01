@@ -27,21 +27,13 @@ public class SortTest {
   }
 
   private List<Integer> sort(List<Integer> list) {
-    if (list.size() <= 1) {
-      return list;
+    List<Integer> result = new ArrayList<>();
+
+    if (list.isEmpty()) {
+      return result;
     }
 
-    if (list.size() == 2) {
-      int first = list.get(0);
-      int second = list.get(1);
-      if (first > second) {
-        return asList(second, first);
-      }
-
-      return asList(first, second);
-    }
     int middle = list.get(0);
-
     List<Integer> middles =
             list.stream().filter(x -> x == middle).collect(toList());
     List<Integer> lessers =
@@ -49,11 +41,9 @@ public class SortTest {
     List<Integer> greaters =
             list.stream().filter(x -> x > middle).collect(toList());
 
-    List<Integer> result = new ArrayList<>();
     result.addAll(sort(lessers));
     result.addAll(middles);
     result.addAll(sort(greaters));
-
     return result;
   }
 }
