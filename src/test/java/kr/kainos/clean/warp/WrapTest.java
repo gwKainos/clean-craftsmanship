@@ -8,11 +8,16 @@ public class WrapTest {
 
   @Test
   public void testWrap() throws Exception {
-    assertEquals("Four", wrap("Four", 7));
-    assertEquals("Four\nscore", wrap("Four score", 7));
+    assertWrapped("Four", 7, "Four");
+    assertWrapped("Four\nscore", 7, "Four score");
+  }
+
+  private void assertWrapped(String s, int width, String expected) {
+    assertEquals(expected, wrap(s, width));
   }
 
   private String wrap(String s, int w) {
     return s.replace(" ", "\n");
   }
+
 }
