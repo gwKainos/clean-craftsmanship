@@ -17,6 +17,7 @@ public class SortTest {
     assertEquals(asList(1, 2), sort(asList(2, 1)));
     assertEquals(asList(1, 2, 3), sort(asList(1, 2, 3)));
     assertEquals(asList(1, 2, 3), sort(asList(2, 1, 3)));
+    assertEquals(asList(1, 2, 3), sort(asList(3, 2, 1)));
   }
 
   private List<Integer> sort(List<Integer> list) {
@@ -34,8 +35,8 @@ public class SortTest {
       return asList(first, second);
     }
 
-    int first = list.get(0);
-    int middle = list.get(1);
+    int first = list.get(1);
+    int middle = list.get(0);
     int last = list.get(2);
 
     List<Integer> lessers = new ArrayList<>();
@@ -55,9 +56,9 @@ public class SortTest {
     }
 
     List<Integer> result = new ArrayList<>();
-    result.addAll(lessers);
+    result.addAll(sort(lessers));
     result.add(middle);
-    result.addAll(greaters);
+    result.addAll(sort(greaters));
 
     return result;
   }
