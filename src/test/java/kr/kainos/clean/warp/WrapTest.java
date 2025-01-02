@@ -9,6 +9,7 @@ public class WrapTest {
   @Test
   public void testWrap() throws Exception {
     assertWrapped("", 1, "");
+    assertWrapped("x", 1, "x");
   }
 
   private void assertWrapped(String s, int width, String expected) {
@@ -16,6 +17,6 @@ public class WrapTest {
   }
 
   private String wrap(String s, int w) {
-    return s.replace(" ", "\n");
+    return "";
   }
 }
