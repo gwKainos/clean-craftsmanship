@@ -60,4 +60,15 @@ public class LoginDialogTest {
     assertEquals("user", spy.getLastUsername());  // 마지막 호출된 사용자명 검증
     assertEquals("pw", spy.getLastPassword());  // 마지막 호출된 비밀번호 검증
   }
+
+  @Test
+  public void loginDialogCallToAuthenticator_validated() throws Exception {
+    AuthenticatorMock mock = new AuthenticatorMock("Bob", "xyzzy", 1);  // 오타 수정
+    LoginDialog dialog = new LoginDialog(mock);
+    mock.setResult(true);
+    dialog.show();
+    boolean success = dialog.submit("Bob", "xyzzy");
+    assertTrue(success);
+    assertTrue(mock.validate());
+  }
 }
