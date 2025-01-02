@@ -18,6 +18,10 @@ public class WrapTest {
   }
 
   private String wrap(String s, int w) {
-    return s;
+    if(w >= s.length()) {
+      return s;
+    }
+
+    return s.substring(0, w) + "\n" + s.substring(0, w);
   }
 }
