@@ -38,7 +38,11 @@ public class WrapTest {
     if(w >= s.length()) {
       return s;
     }
+    int br = s.lastIndexOf(" ", w);
+    if (br == -1) {
+      br = w;
+    }
 
-    return s.substring(0, w).trim() + "\n" + wrap(s.substring(w).trim(), w);
+    return s.substring(0, br).trim() + "\n" + wrap(s.substring(br).trim(), w);
   }
 }
