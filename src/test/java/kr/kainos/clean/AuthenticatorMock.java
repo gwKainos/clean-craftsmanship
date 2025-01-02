@@ -2,14 +2,19 @@ package kr.kainos.clean;
 
 public class AuthenticatorMock extends AuthenticatorSpy {
 
-  public AuthenticatorMock(String username, String password, int count) {
-    super();
-  }
+  private String expectedUsername;
+  private String expectedPassword;
+  private int expectedCount;
 
-  public void setResult(boolean b) {
+  public AuthenticatorMock(String username, String password, int count) {
+    expectedUsername = username;
+    expectedPassword = password;
+    expectedCount = count;
   }
 
   public boolean validate() {
-    return true;
+    return getCount() == expectedCount &&
+            getLastUsername().equals(expectedUsername) &&  // getLastPassword -> getLastUsername 수정
+            getLastPassword().equals(expectedPassword);
   }
 }
