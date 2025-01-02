@@ -29,7 +29,7 @@ public class LoginDialogTest {
     Authenticator authenticator = new RejectingAuthenticator();
     LoginDialog dialog = new LoginDialog(authenticator);
     dialog.show();
-    boolean success = dialog.submint("bad username", "bad password");
+    boolean success = dialog.submit("bad username", "bad password");
     assertFalse(success);
   }
 }
