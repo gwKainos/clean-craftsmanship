@@ -39,7 +39,7 @@ public class LoginDialogTest {
     LoginDialog dialog = new LoginDialog(authenticator);
 
     dialog.show();
-    boolean success = dialog.submit("admin", "password");
+    boolean success = dialog.submit("good username", "good password");
 
     // 인증 성공이 예상되므로 true를 검증
     assertTrue(success);
