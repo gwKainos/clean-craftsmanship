@@ -26,7 +26,7 @@ public class LoginDialogTest {
 
   @Test
   public void whenAuthenticatorRejects_loginFails() throws Exception {
-    Authenticator authenticator = new RejectingAuthenticator;
+    Authenticator authenticator = new RejectingAuthenticator();
     LoginDialog dialog = new LoginDialog(authenticator);
     dialog.show();
     boolean success = dialog.sendEvent(Event.CLOSE);
