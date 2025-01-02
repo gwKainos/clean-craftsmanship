@@ -71,4 +71,22 @@ public class LoginDialogTest {
     assertTrue(success);
     assertTrue(mock.validate());
   }
+
+  @Test
+  public void badPasswordAttempt_loginFails() throws Exception {
+    Authenticator authenticator = new FakeAuthenticator();
+    LoginDialog dialog = new LoginDialog(authenticator);
+    dialog.show();
+    boolean success = dialog.submit("user", "bad password");
+    assertFalse(success);
+  }
+
+  @Test
+  public void goodPasswordAttempt_loginSucceeds() throws Exception {
+    Authenticator authenticator = new FakeAuthenticator();
+    LoginDialog dialog = new LoginDialog(authenticator);
+    dialog.show();
+    boolean success = dialog.submit("user", "good password");
+    assertTrue(success);
+  }
 }
