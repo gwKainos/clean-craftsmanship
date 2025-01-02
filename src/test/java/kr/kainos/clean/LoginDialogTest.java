@@ -35,7 +35,7 @@ public class LoginDialogTest {
 
   @Test
   public void whenAuthenticatorAccepts_loginSucceeds() throws Exception {
-    Authenticator authenticator = new AcceptingAuthenticator();
+    Authenticator authenticator = new PromiscuousAuthenticator();
     LoginDialog dialog = new LoginDialog(authenticator);
 
     dialog.show();
