@@ -11,6 +11,8 @@ public class WrapTest {
     assertWrapped("", 1, "");
     assertWrapped("x", 1, "x");
     assertWrapped("xx", 1, "x\nx");
+    assertWrapped("xx", 2, "xx");
+    assertWrapped("xxx", 21, "x\nx\nx");
   }
 
   private void assertWrapped(String s, int width, String expected) {
