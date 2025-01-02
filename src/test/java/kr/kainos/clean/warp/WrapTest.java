@@ -24,6 +24,6 @@ public class WrapTest {
       return s;
     }
 
-    return s.substring(0, w) + "\n" + s.substring(0, w);
+    return s.substring(0, w) + "\n" + wrap(s.substring(w), w);
   }
 }
