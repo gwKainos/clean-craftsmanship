@@ -32,4 +32,16 @@ public class LoginDialogTest {
     boolean success = dialog.submit("bad username", "bad password");
     assertFalse(success);
   }
+
+  @Test
+  public void whenAuthenticatorAccepts_loginSucceeds() throws Exception {
+    Authenticator authenticator = new AcceptingAuthenticator();
+    LoginDialog dialog = new LoginDialog(authenticator);
+
+    dialog.show();
+    boolean success = dialog.submit("admin", "password");
+
+    // 인증 성공이 예상되므로 true를 검증
+    assertTrue(success);
+  }
 }
