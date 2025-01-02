@@ -1,5 +1,6 @@
 package kr.kainos.clean.warp;
 
+import static org.apache.commons.lang3.StringUtils.trim;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
@@ -27,6 +28,6 @@ public class WrapTest {
       return s;
     }
 
-    return s.substring(0, w) + "\n" + wrap(s.substring(w), w);
+    return s.substring(0, w) + "\n" + wrap(s.substring(w).trim(), w);
   }
 }
