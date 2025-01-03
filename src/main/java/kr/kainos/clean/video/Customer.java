@@ -19,8 +19,6 @@ public class Customer {
   }
 
   public int getRentalFee() {
-    System.out.println("titletitle" + title);
-    System.out.println("daysdays" + days);
     if (VideoRegistry.getType(title) == REGULAR) {
       return applyGracePeriod(150, 3);
     }

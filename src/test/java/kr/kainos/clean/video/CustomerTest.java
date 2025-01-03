@@ -49,4 +49,11 @@ public class CustomerTest {
     customer.addRental("ChildrensMovie", 4);
     assertFeeAndPoints(400, 1);
   }
+
+  @Test
+  public void OneRegularOneChildrens_FoourDays() throws Exception {
+    customer.addRental("RegularMovie", 4);    // 3달러 + 2포인트
+    customer.addRental("ChildrensMovie", 4);  // 4달러 + 1포인트
+    assertFeeAndPoints(700, 3);
+  }
 }
