@@ -24,11 +24,7 @@ public class Customer {
   public int getRentalFee() {
     int fee = 0;
     for (Rental rental : rentals) {
-      if (rental.type == REGULAR) {
-        fee += applyGracePeriod(150, rental.days, 3);
-      } else {
-        fee += rental.days * 100;
-      }
+      fee += rental.feeFor(this);
     }
     return fee;
   }
@@ -36,20 +32,12 @@ public class Customer {
   public int getRenterPoints() {
     int points = 0;
     for (Rental rental : rentals) {
-      if (rental.type == REGULAR) {
-        points += applyGracePeriod(1, rental.days, 3);
-      } else {
-        points++;
-      }
+      points += rental.pointsFor(this);
     }
 
     return points;
   }
 
-  private int applyGracePeriod(int amount, int days, int grace) {
-    if (days > grace) {
-      return amount + amount * (days - grace);
-    }
-    return amount;
-  }
+
+
 }
