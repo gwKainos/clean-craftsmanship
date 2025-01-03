@@ -1,11 +1,8 @@
 package kr.kainos.clean.video;
 
-import static kr.kainos.clean.video.VideoRegistry.VideoType.CHILDRENS;
-import static kr.kainos.clean.video.VideoRegistry.VideoType.REGULAR;
-
 import kr.kainos.clean.video.VideoRegistry.VideoType;
 
-public class Movie {
+public abstract class Movie {
 
   public String title;
   public int days;
@@ -27,25 +24,9 @@ public class Movie {
     return type;
   }
 
-  int getPoints() {
-    int points = 0;
-    if (type == REGULAR) {
-      points += applyGracePeriod(1, this.days, 3);
-    } else {
-      points++;
-    }
-    return points;
-  }
+  public abstract int getFee(int days, Rental rental);
 
-  int getFee() {
-    int fee = 0;
-    if (type == REGULAR) {
-      fee += applyGracePeriod(150, this.days, 3);
-    } else {
-      fee += this.days * 100;
-    }
-    return fee;
-  }
+  public abstract int getPoints(int days, Rental rental);
 
   int applyGracePeriod(int amount, int days, int grace) {
     if (days > grace) {
