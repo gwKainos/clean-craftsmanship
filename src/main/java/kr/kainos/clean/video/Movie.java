@@ -5,15 +5,14 @@ import kr.kainos.clean.video.VideoRegistry.VideoType;
 public abstract class Movie {
 
   public String title;
+  private final VideoType videoType;
   public int days;
   public VideoType type;
 
-  public Movie() {
-  }
-
-  public Movie(String title, VideoType type) {
+  public Movie(String title, VideoType videoType, int days) {
     this.title = title;
-    this.type = type;
+    this.videoType = videoType;
+    this.days = days;
   }
 
   public String getTitle() {

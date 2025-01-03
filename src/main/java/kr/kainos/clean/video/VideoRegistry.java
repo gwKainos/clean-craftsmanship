@@ -14,12 +14,12 @@ public class VideoRegistry {
 
   public static final Map<String, VideoType> videoRegistry = new HashMap<>();
 
-  public static Movie getMovie(String title) {
+  public static Movie getMovie(String title, int days) {
     switch (videoRegistry.get(title)) {
       case CHILDRENS:
-        return new ChildrensMovie(title, CHILDRENS);
+        return new ChildrensMovie(title, CHILDRENS, days);
       case REGULAR:
-        return new RegularMovie(title, REGULAR);
+        return new RegularMovie(title, REGULAR, days);
       default:
         throw new IllegalArgumentException("Invalid Movie Type");
     }

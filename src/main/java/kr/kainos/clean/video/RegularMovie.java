@@ -4,8 +4,8 @@ import kr.kainos.clean.video.VideoRegistry.VideoType;
 
 public class RegularMovie extends Movie {
 
-  public RegularMovie(String title, VideoType videoType) {
-    super(title, videoType);
+  public RegularMovie(String title, VideoType videoType, int days) {  // days 전달
+    super(title, videoType, days);
   }
 
   public int getFee(int days, Rental rental) {

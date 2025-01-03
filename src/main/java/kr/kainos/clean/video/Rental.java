@@ -6,7 +6,7 @@ public class Rental {
 
   public Rental(String title, int days) {
     this.days = days;
-    movie = VideoRegistry.getMovie(title);
+    movie = VideoRegistry.getMovie(title, days);
   }
 
   int getFee() {
