@@ -1,5 +1,6 @@
 package kr.kainos.clean.video;
 
+import static kr.kainos.clean.video.VideoRegistry.VideoType.CHILDRENS;
 import static kr.kainos.clean.video.VideoRegistry.VideoType.REGULAR;
 
 import kr.kainos.clean.video.VideoRegistry.VideoType;
@@ -11,6 +12,22 @@ public class Movie {
   public VideoType type;
 
   public Movie() {
+  }
+
+  public Movie(String title, VideoType type) {
+    this.title = title;
+    this.type = type;
+  }
+
+  public static Movie of(String title, VideoType type) {
+    switch (type) {
+      case CHILDRENS:
+        return new ChildrensMovie(title, CHILDRENS);
+      case REGULAR:
+        return new RegularMovie(title, REGULAR);
+      default:
+        throw new IllegalArgumentException("Invalid Movie Type");
+    }
   }
 
   public String getTitle() {
