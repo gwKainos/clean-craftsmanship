@@ -19,14 +19,20 @@ public class Customer {
   }
 
   public int getRentalFee() {
+    System.out.println("titletitle" + title);
+    System.out.println("daysdays" + days);
     if (VideoRegistry.getType(title) == REGULAR) {
       return applyGracePeriod(150, 3);
     }
-    return 100;
+
+    return applyGracePeriod(100, 1);
   }
 
   public int getRenterPoints() {
-    return applyGracePeriod(1, 3);
+    if (VideoRegistry.getType(title) == REGULAR) {
+      return applyGracePeriod(1, 3);
+    }
+    return 1;
   }
 
   private int applyGracePeriod(int amount, int grace) {
