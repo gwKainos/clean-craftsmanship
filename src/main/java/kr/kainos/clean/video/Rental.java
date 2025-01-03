@@ -23,7 +23,7 @@ public class Rental {
     return type;
   }
 
-  int getPoints(Customer customer) {
+  int getPoints() {
     int points = 0;
     if (type == REGULAR) {
       points += applyGracePeriod(1, this.days, 3);
@@ -33,7 +33,7 @@ public class Rental {
     return points;
   }
 
-  int getFee(Customer customer) {
+  int getFee() {
     int fee = 0;
     if (type == REGULAR) {
       fee += applyGracePeriod(150, this.days, 3);

@@ -22,7 +22,7 @@ public class Customer {
   public int getRentalFee() {
     int fee = 0;
     for (Rental rental : rentals) {
-      fee += rental.getFee(this);
+      fee += rental.getFee();
     }
     return fee;
   }
@@ -30,7 +30,7 @@ public class Customer {
   public int getRenterPoints() {
     int points = 0;
     for (Rental rental : rentals) {
-      points += rental.getPoints(this);
+      points += rental.getPoints();
     }
 
     return points;
