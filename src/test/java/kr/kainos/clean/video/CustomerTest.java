@@ -20,8 +20,15 @@ public class CustomerTest {
 
   @Test
   public void RegularMovie_OneDay() throws Exception {
-    customer = new Customer();
     customer.addRental("RegularMovie", 1);
+    assertFeeAndPoints(1.5, 1);
+  }
+
+  @Test
+  public void RegularMovie_SecondAndThirdDayFree() throws Exception {
+    customer.addRental("RegularMovie", 2);
+    assertFeeAndPoints(1.5, 1);
+    customer.addRental("RegularMovie", 3);
     assertFeeAndPoints(1.5, 1);
   }
 }
