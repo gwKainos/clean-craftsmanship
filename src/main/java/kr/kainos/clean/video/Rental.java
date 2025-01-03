@@ -1,13 +1,12 @@
 package kr.kainos.clean.video;
 
 public class Rental {
-
-  public final Movie movie = new Movie();
+  private int days;
+  private Movie movie = new Movie();
 
   public Rental(String title, int days) {
-    this.movie.title = title;
-    this.movie.days = days;
-    movie.type = VideoRegistry.getType(title);
+    this.days = days;
+    movie = VideoRegistry.getMovie(title);
   }
 
   int getPoints() {

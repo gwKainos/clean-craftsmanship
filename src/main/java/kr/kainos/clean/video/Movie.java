@@ -19,17 +19,6 @@ public class Movie {
     this.type = type;
   }
 
-  public static Movie of(String title, VideoType type) {
-    switch (type) {
-      case CHILDRENS:
-        return new ChildrensMovie(title, CHILDRENS);
-      case REGULAR:
-        return new RegularMovie(title, REGULAR);
-      default:
-        throw new IllegalArgumentException("Invalid Movie Type");
-    }
-  }
-
   public String getTitle() {
     return title;
   }
