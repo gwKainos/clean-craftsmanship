@@ -4,7 +4,11 @@ import static kr.kainos.clean.video.VideoRegistry.VideoType.CHILDRENS;
 import static kr.kainos.clean.video.VideoRegistry.VideoType.REGULAR;
 import static kr.kainos.clean.video.VideoRegistry.videoRegistry;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Customer {
+  private List<Rental> rentals = new ArrayList<>();
   private String title;
   private int days;;
 
@@ -14,26 +18,35 @@ public class Customer {
   }
 
   public void addRental(String title, int days) {
-    this.title = title;
-    this.days = days;
+    rentals.add(new Rental(title, days));
   }
 
   public int getRentalFee() {
-    if (VideoRegistry.getType(title) == REGULAR) {
-      return applyGracePeriod(150, 3);
+    int fee = 0;
+    for (Rental rental : rentals) {
+      if (rental.type == REGULAR) {
+        fee += applyGracePeriod(150, rental.days, 3);
+      } else {
+        fee += rental.days * 100;
+      }
     }
-
-    return applyGracePeriod(100, 1);
+    return fee;
   }
 
   public int getRenterPoints() {
-    if (VideoRegistry.getType(title) == REGULAR) {
-      return applyGracePeriod(1, 3);
+    int points = 0;
+    for (Rental rental : rentals) {
+      if (rental.type == REGULAR) {
+        points += applyGracePeriod(1, rental.days, 3);
+      } else {
+        points++;
+      }
     }
-    return 1;
+
+    return points;
   }
 
-  private int applyGracePeriod(int amount, int grace) {
+  private int applyGracePeriod(int amount, int days, int grace) {
     if (days > grace) {
       return amount + amount * (days - grace);
     }
