@@ -10,13 +10,20 @@ public class Rental {
   public VideoType type;
 
   public Rental(String title, int days) {
-
     this.title = title;
     this.days = days;
     type = VideoRegistry.getType(title);
   }
 
-  int pointsFor(Customer customer) {
+  public String getTitle() {
+    return title;
+  }
+
+  public VideoType getType() {
+    return type;
+  }
+
+  int getPoints(Customer customer) {
     int points = 0;
     if (type == REGULAR) {
       points += applyGracePeriod(1, this.days, 3);
@@ -26,7 +33,7 @@ public class Rental {
     return points;
   }
 
-  int feeFor(Customer customer) {
+  int getFee(Customer customer) {
     int fee = 0;
     if (type == REGULAR) {
       fee += applyGracePeriod(150, this.days, 3);

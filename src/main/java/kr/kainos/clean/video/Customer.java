@@ -9,8 +9,6 @@ import java.util.List;
 
 public class Customer {
   private List<Rental> rentals = new ArrayList<>();
-  private String title;
-  private int days;;
 
   public Customer() {
     videoRegistry.put("RegularMovie", REGULAR);
@@ -24,7 +22,7 @@ public class Customer {
   public int getRentalFee() {
     int fee = 0;
     for (Rental rental : rentals) {
-      fee += rental.feeFor(this);
+      fee += rental.getFee(this);
     }
     return fee;
   }
@@ -32,12 +30,9 @@ public class Customer {
   public int getRenterPoints() {
     int points = 0;
     for (Rental rental : rentals) {
-      points += rental.pointsFor(this);
+      points += rental.getPoints(this);
     }
 
     return points;
   }
-
-
-
 }
