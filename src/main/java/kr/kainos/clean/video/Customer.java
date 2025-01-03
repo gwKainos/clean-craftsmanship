@@ -1,24 +1,16 @@
 package kr.kainos.clean.video;
 
-import java.util.HashMap;
-import java.util.Map;
+import static kr.kainos.clean.video.VideoRegistry.VideoType.CHILDRENS;
+import static kr.kainos.clean.video.VideoRegistry.VideoType.REGULAR;
+import static kr.kainos.clean.video.VideoRegistry.videoRegistry;
 
 public class Customer {
-
   private String title;
-  private int days;
-  private Map<String, VideoType> movieRegistry = new HashMap<>();
-
-  enum VideoType {
-    REGULAR,
-    CHILDRENS
-  }
-
-  ;
+  private int days;;
 
   public Customer() {
-    movieRegistry.put("RegularMovie", VideoType.REGULAR);
-    movieRegistry.put("ChildrensMovie", VideoType.CHILDRENS);
+    videoRegistry.put("RegularMovie", REGULAR);
+    videoRegistry.put("ChildrensMovie", CHILDRENS);
   }
 
   public void addRental(String title, int days) {
@@ -27,16 +19,11 @@ public class Customer {
   }
 
   public int getRentalFee() {
-    if (getType(title) == VideoType.REGULAR) {
+    if (VideoRegistry.getType(title) == REGULAR) {
       return applyGracePeriod(150, 3);
     }
     return 100;
   }
-
-  private VideoType getType(String title) {
-    return movieRegistry.get(title);
-  }
-
 
   public int getRenterPoints() {
     return applyGracePeriod(1, 3);
